@@ -15,7 +15,9 @@ namespace CompetencePlus.PackagePrecision
 
         public void Add(Precision o)
         {
-            throw new NotImplementedException();
+            string req = "insert into [Precisions](nom,description,duree,ordre,modules_id) values('"+ o.Nom + "','" + o.Description + "'," + o.Duree + "," + o.Ordre + "," + o.Modules_id.ID + ")";
+            MyConnection.ExecuteNonQuery(req);
+
         }
 
         public void Update(Precision o)
@@ -32,11 +34,12 @@ namespace CompetencePlus.PackagePrecision
         {
 
             List<Precision> p = new List<Precision>();
-            string req = "Select * From [Precisions]";
+            string req = "Select * From Precisions";
             OleDbDataReader sqr = MyConnection.ExecuteReader(req);
             while (sqr.Read())
             {
-                p.Add(new Precision(sqr.GetInt32(0), sqr.GetInt32(1), sqr.GetString(2), sqr.GetString(3), sqr.GetInt32(4), sqr.GetInt32(5)));
+                p.Add(new Precision(sqr.GetInt32(0),sqr.GetInt32(1),sqr.GetString(2),sqr.GetString(3),sqr.GetInt32(4),sqr.GetInt32(5),new ModuleDAO().FindById(sqr.GetInt32(6))));
+               // p.Add(new Precision(sqr.GetInt32(0), sqr.GetInt32(1), sqr.GetString(2), sqr.GetString(3), sqr.GetInt32(4), sqr.GetInt32(5),new ModuleDAO().FindById(sqr.GetInt32(6))));
             }
             MyConnection.Close();
             return p;
@@ -46,11 +49,11 @@ namespace CompetencePlus.PackagePrecision
         public Precision FindById(int id)
         {
             List<Precision> p = new List<Precision>();
-            string req = "Select * From [Precisions] where id =" + id;
+            string req = "Select * From [Precisions] where modules_id =" + id;
             OleDbDataReader sqr = MyConnection.ExecuteReader(req);
             while (sqr.Read())
             {
-                p.Add(new Precision(sqr.GetInt32(0), sqr.GetInt32(1), sqr.GetString(2), sqr.GetString(3), sqr.GetInt32(4), sqr.GetInt32(5)));
+                p.Add(new Precision(sqr.GetInt32(0), sqr.GetInt32(1), sqr.GetString(2), sqr.GetString(3), sqr.GetInt32(4), sqr.GetInt32(5),  new ModuleDAO().FindById(sqr.GetInt32(6))));
             }
             MyConnection.Close();
             return p.ElementAt(0);
@@ -62,7 +65,7 @@ namespace CompetencePlus.PackagePrecision
             OleDbDataReader sqr = MyConnection.ExecuteReader(req);
             while (sqr.Read())
             {
-                p.Add(new Precision(sqr.GetInt32(0), sqr.GetInt32(1), sqr.GetString(2), sqr.GetString(3), sqr.GetInt32(4), sqr.GetInt32(5)));
+                p.Add(new Precision(sqr.GetInt32(0), sqr.GetInt32(1), sqr.GetString(2), sqr.GetString(3), sqr.GetInt32(4), sqr.GetInt32(5), new ModuleDAO().FindById(sqr.GetInt32(6))));
             }
             MyConnection.Close();
             return p;

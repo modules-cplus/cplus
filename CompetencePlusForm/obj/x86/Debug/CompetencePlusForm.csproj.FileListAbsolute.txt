@@ -179,3 +179,4 @@ C:\Users\THINKPAD\Documents\GitHub\cplus\CompetencePlusForm\obj\x86\Debug\Compet
 C:\Users\THINKPAD\Documents\GitHub\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackageModules.FormeGestionModules.resources
 C:\Users\THINKPAD\Documents\GitHub\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackageModules.FormeModule.resources
 C:\Users\THINKPAD\Documents\GitHub\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackageModules.FormeGestionPrecision.resources
+C:\Users\THINKPAD\Documents\GitHub\cplus\CompetencePlusForm\obj\x86\Debug\CompetencePlus.PackagePrecision.FormPrecision.resources

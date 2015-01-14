@@ -12,7 +12,13 @@ namespace CompetencePlus.PackageModules
         private int id;
 
 
-        private String nom;
+        private String nom, code;
+
+        public String Code
+        {
+            get { return code; }
+            set { code = value; }
+        }
         private int duree;
         Filiere id_f;
 
@@ -21,21 +27,18 @@ namespace CompetencePlus.PackageModules
             get { return id_f; }
             set { id_f = value; }
         }
-        Precision id_pr;
+       
 
-        public Precision Id_pr
-        {
-            get { return id_pr; }
-            set { id_pr = value; }
-        }
+       
         private string strategieEnseignement, description, presentation, competence, equipement, materiel, evaluation, apprentisage;
 
 
-        public Module(int id, Filiere id_f,Precision id_pr, String nom, int duree, string strategieEnseignement, string apprentisage, string evaluation, string materiel, string equipement, string competence, string presentation, string description)
+        public Module(int id, Filiere id_f, String nom, int duree, string strategieEnseignement, string apprentisage, string evaluation, string materiel, string equipement, string competence, string presentation, string description,String code)
         {
-            this.id_pr = id_pr;
+            
             this.id_f = id_f;
             this.id = id;
+            this.code = code;
             this.nom = nom; this.duree = duree; this.strategieEnseignement = strategieEnseignement; this.description = description; this.presentation = presentation; this.competence = competence; this.equipement = equipement; this.materiel = materiel; this.evaluation = evaluation; this.apprentisage = apprentisage;
         }
 

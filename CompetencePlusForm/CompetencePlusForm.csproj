@@ -120,6 +120,12 @@
     <Compile Include="PackagePrecision\FormeGestionPrecision.designer.cs">
       <DependentUpon>FormeGestionPrecision.cs</DependentUpon>
     </Compile>
+    <Compile Include="PackagePrecision\FormPrecision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackagePrecision\FormPrecision.Designer.cs">
+      <DependentUpon>FormPrecision.cs</DependentUpon>
+    </Compile>
     <Compile Include="PackagePrevisionSeances\Class2.cs" />
     <Compile Include="PackageSeances\Class2.cs" />
     <Compile Include="PackageStagiaires\FormGestionInscription.cs">
@@ -190,6 +196,9 @@
     <EmbeddedResource Include="PackagePrecision\FormeGestionPrecision.resx">
       <DependentUpon>FormeGestionPrecision.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PackagePrecision\FormPrecision.resx">
+      <DependentUpon>FormPrecision.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PackageStagiaires\FormGestionInscription.resx">
       <DependentUpon>FormGestionInscription.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +228,7 @@
     <None Include="Properties\DataSources\CompetencePlus.PackageFilieres.Filiere.datasource" />
     <None Include="Properties\DataSources\CompetencePlus.PackageGroupes.Groupe.datasource" />
     <None Include="Properties\DataSources\CompetencePlus.PackageModules.Module.datasource" />
+    <None Include="Properties\DataSources\CompetencePlus.PackagePrecision.Precision.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -11,12 +11,25 @@ namespace CompetencePlus.PackagePrecision
         int id, duree, ordre;
         string nom, description;
         int testcontenue;
+        Module modules_id;
 
-
-
-        public Precision(int id, int testcontenue, string nom, string description, int duree, int ordre)
+        public Module Modules_id
         {
+            get { return modules_id; }
+            set { modules_id = value; }
+        }
+
+
+
+        public Precision(int id, int testcontenue, string nom, string description, int duree, int ordre,Module modules_id)
+        {
+            this.modules_id = modules_id;
             this.id = id; this.testcontenue = testcontenue; this.nom = nom; this.description = description; this.duree = duree; this.ordre = ordre;
+        }
+
+        public Precision()
+        {
+            // TODO: Complete member initialization
         }
 
 

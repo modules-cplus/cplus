@@ -23,7 +23,14 @@ namespace CompetencePlus.PackageModules
            
             moduleBindingSource.DataSource = null;
             moduleBindingSource.DataSource = new ModuleBAO().Select();
-           
+
+            Module m = (Module)moduleBindingSource.Current;
+            if (m != null)
+            {
+                nomLabel1.Text = m.Nom;
+                competenceLabel1.Text = m.Competence;
+                dureeLabel1.Text = m.Duree.ToString();
+            }
             
            
         }
@@ -31,6 +38,13 @@ namespace CompetencePlus.PackageModules
         {
             this.Actualiser();
             labelTime.Text = "0h".ToString();
+            //Module m = (Module)moduleBindingSource.Current;
+           
+            //    nomLabel1.Text = m.Nom;
+            //    competenceLabel1.Text = m.Competence;
+            //    dureeLabel1.Text = m.Duree.ToString();
+            
+            
            
         }
 
@@ -76,9 +90,18 @@ namespace CompetencePlus.PackageModules
                 fp.getid(d);
                 fp.Show();
             }
+            if (e.ColumnIndex == 4)
+            {
+                FormeModule f = new FormeModule();
+                f.Ismodify = true;
+                f.getid(d.ID);
+                f.update(d);
+                f.ShowDialog();
+                this.Actualiser();
+            }
             try
             {
-                int id = int.Parse(moduleDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+              //  int id = int.Parse(moduleDataGridView.SelectedRows[0].Cells[0].Value.ToString());
                 
                 foreach (var item in new ModuleBAO().Select())
                 {
@@ -110,12 +133,15 @@ namespace CompetencePlus.PackageModules
 
         private void brechercher_Click(object sender, EventArgs e)
         {
-            Module m = new Module();
-            m.Nom=nomTextBox.Text;
-            m.Description=descriptionTextBox.Text;
-            m.Duree=hScrollBar1.Value;
-            moduleBindingSource.DataSource = null;
-            moduleBindingSource.DataSource = new ModuleBAO().findbyname(m);
+         
+                Module m = new Module();
+                m.Nom = nomTextBox.Text;
+                m.Description = descriptionTextBox.Text;
+                m.Duree = hScrollBar1.Value;
+                m.Id_f = new PackageFilieres.FiliereDAO().FindByName(codeTextBox.Text.ToString());
+                moduleBindingSource.DataSource = null;
+                moduleBindingSource.DataSource = new ModuleBAO().findbyname(m);
+          
         }
 
         public void getinfo()
