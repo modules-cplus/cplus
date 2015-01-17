@@ -26,7 +26,7 @@ namespace CompetencePlus.PackageModules
         {
 
             precisionBindingSource.DataSource = null;
-            precisionBindingSource.DataSource = new PrecisionBAO().Select();
+            precisionBindingSource.DataSource = new PrecisionBAO().GetallPres(m.ID);
 
             Precision pr = (Precision)precisionBindingSource.Current;
             if (pr != null)
@@ -53,6 +53,30 @@ namespace CompetencePlus.PackageModules
         private void button2_Click(object sender, EventArgs e)
         {
             this.Actualiser();
+        }
+
+        private void precisionDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            Precision pr = (Precision)precisionBindingSource.Current;
+            if (e.ColumnIndex == 6)
+            {
+               
+                    new PrecisionBAO().Delete(pr.Id);
+                    this.Actualiser();
+                
+            }
+            if (e.ColumnIndex == 5)
+            {
+                FormPrecision prx = new FormPrecision();
+                prx.ismodify = true;
+                prx.getid(m);
+                prx.update(pr);
+                prx.ShowDialog();
+                this.Actualiser();
+            }
+
+
         }
     }
 }

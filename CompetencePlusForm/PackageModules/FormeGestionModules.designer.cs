@@ -73,6 +73,7 @@
             this.bpervious = new System.Windows.Forms.Button();
             this.bSuivant = new System.Windows.Forms.Button();
             this.bend = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             nomLabel = new System.Windows.Forms.Label();
             competenceLabel = new System.Windows.Forms.Label();
             dureeLabel = new System.Windows.Forms.Label();
@@ -458,11 +459,22 @@
             this.bend.UseVisualStyleBackColor = true;
             this.bend.Click += new System.EventHandler(this.bend_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(595, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Ajouter";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_3);
+            // 
             // FormeGestionModules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 498);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bend);
             this.Controls.Add(this.bSuivant);
             this.Controls.Add(this.bpervious);
@@ -524,5 +536,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn precision;
         private System.Windows.Forms.DataGridViewImageColumn bajouter;
         private System.Windows.Forms.DataGridViewImageColumn bsupprimer;
+        private System.Windows.Forms.Button button1;
     }
 }

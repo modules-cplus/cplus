@@ -43,6 +43,10 @@
             this.nomTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.precisionDataGridView = new System.Windows.Forms.DataGridView();
+            this.prealable = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Contenue = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pmodifier = new System.Windows.Forms.DataGridViewImageColumn();
+            this.psupprimer = new System.Windows.Forms.DataGridViewImageColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.bend = new System.Windows.Forms.Button();
             this.bSuivant = new System.Windows.Forms.Button();
@@ -50,14 +54,11 @@
             this.bfirst = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.precisionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prealable = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Contenue = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pmodifier = new System.Windows.Forms.DataGridViewImageColumn();
-            this.psupprimer = new System.Windows.Forms.DataGridViewImageColumn();
+            this.precisionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bchercher = new System.Windows.Forms.Button();
             nomLabel = new System.Windows.Forms.Label();
             dureeLabel = new System.Windows.Forms.Label();
             nomLabel2 = new System.Windows.Forms.Label();
@@ -147,6 +148,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.bchercher);
             this.groupBox2.Controls.Add(dureeLabel2);
             this.groupBox2.Controls.Add(this.dureeTrackBar);
             this.groupBox2.Controls.Add(descriptionLabel);
@@ -210,6 +212,39 @@
             this.precisionDataGridView.Name = "precisionDataGridView";
             this.precisionDataGridView.Size = new System.Drawing.Size(612, 311);
             this.precisionDataGridView.TabIndex = 0;
+            this.precisionDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.precisionDataGridView_CellClick);
+            // 
+            // prealable
+            // 
+            this.prealable.HeaderText = "prealable";
+            this.prealable.Name = "prealable";
+            this.prealable.Text = "prealable";
+            this.prealable.ToolTipText = "prealable";
+            this.prealable.UseColumnTextForButtonValue = true;
+            // 
+            // Contenue
+            // 
+            this.Contenue.HeaderText = "Contenue";
+            this.Contenue.Name = "Contenue";
+            this.Contenue.Text = "Contenue";
+            this.Contenue.ToolTipText = "Contenue";
+            this.Contenue.UseColumnTextForButtonValue = true;
+            // 
+            // pmodifier
+            // 
+            this.pmodifier.HeaderText = "";
+            this.pmodifier.Image = global::CompetencePlus.Properties.Resources.Update;
+            this.pmodifier.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.pmodifier.Name = "pmodifier";
+            this.pmodifier.Width = 30;
+            // 
+            // psupprimer
+            // 
+            this.psupprimer.HeaderText = "";
+            this.psupprimer.Image = global::CompetencePlus.Properties.Resources.Delete;
+            this.psupprimer.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.psupprimer.Name = "psupprimer";
+            this.psupprimer.Width = 30;
             // 
             // button1
             // 
@@ -269,10 +304,6 @@
             this.dataGridViewImageColumn2.HeaderText = "psupprimer";
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
-            // precisionBindingSource
-            // 
-            this.precisionBindingSource.DataSource = typeof(CompetencePlus.PackagePrecision.Precision);
-            // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Id";
@@ -292,37 +323,18 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Duree";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // prealable
+            // precisionBindingSource
             // 
-            this.prealable.HeaderText = "prealable";
-            this.prealable.Name = "prealable";
-            this.prealable.Text = "prealable";
-            this.prealable.ToolTipText = "prealable";
-            this.prealable.UseColumnTextForButtonValue = true;
+            this.precisionBindingSource.DataSource = typeof(CompetencePlus.PackagePrecision.Precision);
             // 
-            // Contenue
+            // bchercher
             // 
-            this.Contenue.HeaderText = "Contenue";
-            this.Contenue.Name = "Contenue";
-            this.Contenue.Text = "Contenue";
-            this.Contenue.ToolTipText = "Contenue";
-            this.Contenue.UseColumnTextForButtonValue = true;
-            // 
-            // pmodifier
-            // 
-            this.pmodifier.HeaderText = "";
-            this.pmodifier.Image = global::CompetencePlus.Properties.Resources.Update;
-            this.pmodifier.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.pmodifier.Name = "pmodifier";
-            this.pmodifier.Width = 30;
-            // 
-            // psupprimer
-            // 
-            this.psupprimer.HeaderText = "";
-            this.psupprimer.Image = global::CompetencePlus.Properties.Resources.Delete;
-            this.psupprimer.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.psupprimer.Name = "psupprimer";
-            this.psupprimer.Width = 30;
+            this.bchercher.Location = new System.Drawing.Point(193, 218);
+            this.bchercher.Name = "bchercher";
+            this.bchercher.Size = new System.Drawing.Size(75, 23);
+            this.bchercher.TabIndex = 16;
+            this.bchercher.Text = "Rechercher";
+            this.bchercher.UseVisualStyleBackColor = true;
             // 
             // FormeGestionPrecision
             // 
@@ -378,5 +390,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Contenue;
         private System.Windows.Forms.DataGridViewImageColumn pmodifier;
         private System.Windows.Forms.DataGridViewImageColumn psupprimer;
+        private System.Windows.Forms.Button bchercher;
     }
 }

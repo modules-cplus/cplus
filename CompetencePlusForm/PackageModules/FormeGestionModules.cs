@@ -184,5 +184,10 @@ namespace CompetencePlus.PackageModules
         {
             labelTime.Text = hScrollBar1.Value + "h";
         }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            this.Actualiser();
+        }
     }
 }

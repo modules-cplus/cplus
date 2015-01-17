@@ -32,20 +32,20 @@
             System.Windows.Forms.Label nomLabel;
             System.Windows.Forms.Label dureeLabel;
             System.Windows.Forms.Label descriptionLabel;
-            this.precisionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomTextBox = new System.Windows.Forms.TextBox();
             this.dureeTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.benregistrer = new System.Windows.Forms.Button();
+            this.precisionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.NomErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DurreerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             nomLabel = new System.Windows.Forms.Label();
             dureeLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.precisionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NomErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DurreerrorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // precisionBindingSource
-            // 
-            this.precisionBindingSource.DataSource = typeof(CompetencePlus.PackagePrecision.Precision);
             // 
             // nomLabel
             // 
@@ -56,14 +56,6 @@
             nomLabel.TabIndex = 1;
             nomLabel.Text = "Nom:";
             // 
-            // nomTextBox
-            // 
-            this.nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.precisionBindingSource, "Nom", true));
-            this.nomTextBox.Location = new System.Drawing.Point(74, 62);
-            this.nomTextBox.Name = "nomTextBox";
-            this.nomTextBox.Size = new System.Drawing.Size(496, 20);
-            this.nomTextBox.TabIndex = 2;
-            // 
             // dureeLabel
             // 
             dureeLabel.AutoSize = true;
@@ -73,14 +65,6 @@
             dureeLabel.TabIndex = 2;
             dureeLabel.Text = "Duree:";
             // 
-            // dureeTextBox
-            // 
-            this.dureeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.precisionBindingSource, "Duree", true));
-            this.dureeTextBox.Location = new System.Drawing.Point(74, 102);
-            this.dureeTextBox.Name = "dureeTextBox";
-            this.dureeTextBox.Size = new System.Drawing.Size(212, 20);
-            this.dureeTextBox.TabIndex = 3;
-            // 
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
@@ -89,6 +73,26 @@
             descriptionLabel.Size = new System.Drawing.Size(63, 13);
             descriptionLabel.TabIndex = 4;
             descriptionLabel.Text = "Description:";
+            // 
+            // nomTextBox
+            // 
+            this.nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.precisionBindingSource, "Nom", true));
+            this.nomTextBox.Location = new System.Drawing.Point(74, 62);
+            this.nomTextBox.Name = "nomTextBox";
+            this.nomTextBox.Size = new System.Drawing.Size(496, 20);
+            this.nomTextBox.TabIndex = 2;
+            this.nomTextBox.Leave += new System.EventHandler(this.nomTextBox_Leave);
+            this.nomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.nomTextBox_Validating);
+            // 
+            // dureeTextBox
+            // 
+            this.dureeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.precisionBindingSource, "Duree", true));
+            this.dureeTextBox.Location = new System.Drawing.Point(74, 102);
+            this.dureeTextBox.Name = "dureeTextBox";
+            this.dureeTextBox.Size = new System.Drawing.Size(212, 20);
+            this.dureeTextBox.TabIndex = 3;
+            this.dureeTextBox.Leave += new System.EventHandler(this.dureeTextBox_Leave);
+            this.dureeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.dureeTextBox_Validating);
             // 
             // descriptionTextBox
             // 
@@ -109,6 +113,18 @@
             this.benregistrer.UseVisualStyleBackColor = true;
             this.benregistrer.Click += new System.EventHandler(this.benregistrer_Click);
             // 
+            // precisionBindingSource
+            // 
+            this.precisionBindingSource.DataSource = typeof(CompetencePlus.PackagePrecision.Precision);
+            // 
+            // NomErrorProvider
+            // 
+            this.NomErrorProvider.ContainerControl = this;
+            // 
+            // DurreerrorProvider
+            // 
+            this.DurreerrorProvider.ContainerControl = this;
+            // 
             // FormPrecision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,7 +139,10 @@
             this.Controls.Add(this.nomTextBox);
             this.Name = "FormPrecision";
             this.Text = "Form Ajoute Precision";
+            this.Load += new System.EventHandler(this.FormPrecision_Load);
             ((System.ComponentModel.ISupportInitialize)(this.precisionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NomErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DurreerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +155,7 @@
         private System.Windows.Forms.TextBox dureeTextBox;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Button benregistrer;
+        private System.Windows.Forms.ErrorProvider NomErrorProvider;
+        private System.Windows.Forms.ErrorProvider DurreerrorProvider;
     }
 }

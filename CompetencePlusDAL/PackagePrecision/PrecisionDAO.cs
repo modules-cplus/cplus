@@ -22,12 +22,14 @@ namespace CompetencePlus.PackagePrecision
 
         public void Update(Precision o)
         {
-            throw new NotImplementedException();
+            string req = "update Precisions set nom = '" + o.Nom + "', description = '" + o.Description + "', duree = " + o.Duree + ", ordre = " + o.Ordre + ", modules_id = " + o.Modules_id.ID + " where id = " + o.Id;
+            MyConnection.ExecuteNonQuery(req);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            string req = "Delete From Precisions where id = " + id;
+            MyConnection.ExecuteNonQuery(req);
         }
 
         public List<Precision> Select()
@@ -49,7 +51,7 @@ namespace CompetencePlus.PackagePrecision
         public Precision FindById(int id)
         {
             List<Precision> p = new List<Precision>();
-            string req = "Select * From [Precisions] where modules_id =" + id;
+            string req = "Select * From [Precisions] where id=" + id;
             OleDbDataReader sqr = MyConnection.ExecuteReader(req);
             while (sqr.Read())
             {
@@ -61,7 +63,7 @@ namespace CompetencePlus.PackagePrecision
         public List<Precision> GetallPres(int id)
         {
             List<Precision> p = new List<Precision>();
-            string req = "Select * From [Precisions] where id =" + id;
+            string req = "Select * From [Precisions] where modules_id =" + id;
             OleDbDataReader sqr = MyConnection.ExecuteReader(req);
             while (sqr.Read())
             {
